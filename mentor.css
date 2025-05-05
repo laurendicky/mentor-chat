@@ -150,13 +150,16 @@ body {
 .tooltip-text {
   visibility: hidden;
   width: 300px;
+  max-width: 250px; /* Adjust the max-width as needed */
+  word-wrap: break-word; /* Ensure long words break to prevent overflow */
+}
   background-color: rgba(0, 0, 0, 0.85);
   color: #fff;
   text-align: left;
   border-radius: 6px;
   padding: 10px;
   position: absolute;
-  z-index: 100;
+  z-index: 1000;
   bottom: 125%; /* Position above the element */
   left: 50%;
   transform: translateX(-50%);
@@ -167,6 +170,7 @@ body {
 .tooltip-container:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
+  overflow: visible;
 }
 
 .tooltip-text::after {
