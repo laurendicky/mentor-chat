@@ -1,3 +1,4 @@
+
 /* ───────── ROOT SYSTEM ─────────────────────── */
 :root {
   --radius-pill: 9999px;
@@ -9,7 +10,7 @@
   --shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
 
   /* brand accent (deep indigo) */
-  --accent: #7c9fe7;
+  --accent: #FF0000;
   --accent-hover: #4d4fab;
 
   --pink: #FF2D55;
@@ -33,7 +34,7 @@ body {
   height: 100%;
   padding: 0 10px;
   box-sizing: border-box;
-  overflow: visible !important;
+  overflow-x: hidden;
 }
 
 /* ───────── CHAT FRAME ───────────────────────── */
@@ -46,7 +47,6 @@ body {
   flex-direction: column;
   padding: 10px 0 0;
   gap: 20px;
-  overflow: visible !important;
 }
 
 /* ───────── MESSAGE STREAM ───────────────────── */
@@ -59,7 +59,6 @@ body {
   gap: 14px;
   padding: 0 10px 26px;
   box-sizing: border-box;
-  overflow: visible !important;
 }
 #messages::-webkit-scrollbar {
   width: 6px;
@@ -147,29 +146,18 @@ body {
 .tooltip-container {
   position: relative;
   display: inline-block;
-  overflow: visible !important;
 }
 
 .tooltip-text {
   visibility: hidden;
   width: 300px;
-  max-width: 250px; /* Adjust the max-width as needed */
-  word-wrap: break-word; /* Ensure long words break to prevent overflow */
-  z-index: 10000 !important;
-  overflow: visible;
-  bottom: 125%;
-  left: 50%;
-  top: auto;
-  margin-bottom: 0; 
-  transform: translateX(-50%);
-}
   background-color: rgba(0, 0, 0, 0.85);
   color: #fff;
   text-align: left;
   border-radius: 6px;
   padding: 10px;
   position: absolute;
-  z-index: 1000;
+  z-index: 100;
   bottom: 125%; /* Position above the element */
   left: 50%;
   transform: translateX(-50%);
@@ -180,7 +168,6 @@ body {
 .tooltip-container:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
-  overflow: visible;
 }
 
 .tooltip-text::after {
@@ -259,7 +246,6 @@ body {
   cursor: pointer;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
   transition: transform 0.25s, box-shadow 0.25s;
-  overflow: visible !important;
 }
 .bookmark-circle:hover {
   transform: scale(1.07);
