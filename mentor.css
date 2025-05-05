@@ -1,5 +1,3 @@
-<style>
-
 /* ───────── ROOT SYSTEM ─────────────────────── */
 :root {
   --radius-pill: 9999px;
@@ -661,5 +659,3 @@ body {
 .popupClose:hover {
   background: var(--accent-hover);
 }
-
-</style>
