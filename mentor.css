@@ -1,3 +1,4 @@
+
 /* ───────── ROOT SYSTEM ─────────────────────── */
 :root {
   --radius-pill: 9999px;
@@ -33,7 +34,7 @@ body {
   height: 100%;
   padding: 0 10px;
   box-sizing: border-box;
-  overflow: visible; /* Changed from hidden to visible */
+  overflow-x: hidden;
 }
 
 /* ───────── CHAT FRAME ───────────────────────── */
@@ -52,7 +53,7 @@ body {
 #messages {
   flex: 1 1 auto;
   overflow-y: auto;
-  overflow-x: visible; /* Changed from hidden to visible */
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -135,7 +136,6 @@ body {
   cursor: pointer;
   transition: all 0.25s;
   position: relative; /* For tooltip positioning */
-  z-index: 1; /* Ensure bookmark links have a stacking context */
 }
 .bookmark-link:hover {
   background: #d057a0;
@@ -144,14 +144,14 @@ body {
 
 /* Tooltip Styles */
 .tooltip-container {
-  position: absolute; /* Changed from relative to absolute */
+  position: relative;
   display: inline-block;
 }
 
 .tooltip-text {
   visibility: hidden;
-  width: 250px; /* Adjusted width */
-  max-width: 300px; /* Maximum width to prevent excessive size */
+  width: 250px; /* Reduced width to prevent overflow */
+  max-width: 80vw; /* Ensure tooltip doesn't exceed viewport width */
   background-color: rgba(0, 0, 0, 0.85);
   color: #fff;
   text-align: left;
@@ -166,7 +166,6 @@ body {
   transition: opacity 0.3s;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  pointer-events: none; /* Prevent tooltip from interfering with hover */
 }
 .tooltip-container:hover .tooltip-text {
   visibility: visible;
