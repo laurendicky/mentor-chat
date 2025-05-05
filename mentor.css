@@ -147,6 +147,7 @@ body {
 .tooltip-container {
   position: relative;
   display: inline-block;
+  overflow: visible !important;
 }
 
 .tooltip-text {
@@ -156,6 +157,11 @@ body {
   word-wrap: break-word; /* Ensure long words break to prevent overflow */
   z-index: 10000 !important;
   overflow: visible;
+  bottom: 125%;
+  left: 50%;
+  top: auto;
+  margin-bottom: 0; 
+  transform: translateX(-50%);
 }
   background-color: rgba(0, 0, 0, 0.85);
   color: #fff;
@@ -253,6 +259,7 @@ body {
   cursor: pointer;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
   transition: transform 0.25s, box-shadow 0.25s;
+  overflow: visible !important;
 }
 .bookmark-circle:hover {
   transform: scale(1.07);
