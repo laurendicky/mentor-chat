@@ -10,7 +10,7 @@
   --shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
 
   /* brand accent (deep indigo) */
-  --accent: #008000; 
+  --accent: #7c9fe7;
   --accent-hover: #4d4fab;
 
   --pink: #FF2D55;
@@ -150,21 +150,23 @@ body {
 
 .tooltip-text {
   visibility: hidden;
-  width: 300px;
+  width: 250px; /* Reduced width to prevent overflow */
+  max-width: 80vw; /* Ensure tooltip doesn't exceed viewport width */
   background-color: rgba(0, 0, 0, 0.85);
   color: #fff;
   text-align: left;
   border-radius: 6px;
   padding: 10px;
   position: absolute;
-  z-index: 100;
+  z-index: 10000; /* Increased z-index to appear above all elements */
   bottom: 125%; /* Position above the element */
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
   transition: opacity 0.3s;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
-
 .tooltip-container:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
@@ -463,6 +465,15 @@ body {
     background: #fff;
     color: #000;
   }
+
+  /* Ensure tooltips also adapt to dark mode */
+  .tooltip-text {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #000;
+  }
+  .tooltip-text::after {
+    border-color: rgba(255, 255, 255, 0.85) transparent transparent transparent;
+  }
 }
 
 /* ───────── RESPONSIVE TWEAKS ───────────────── */
@@ -496,6 +507,14 @@ body {
   }
   .bookmark-number {
     margin-bottom: 5px;
+  }
+
+  /* Adjust tooltip width for smaller screens */
+  .tooltip-text {
+    width: 90vw;
+    max-width: none;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
