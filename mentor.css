@@ -33,7 +33,7 @@ body {
   height: 100%;
   padding: 0 10px;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow: visible !important;
 }
 
 /* ───────── CHAT FRAME ───────────────────────── */
@@ -46,6 +46,7 @@ body {
   flex-direction: column;
   padding: 10px 0 0;
   gap: 20px;
+  overflow: visible !important;
 }
 
 /* ───────── MESSAGE STREAM ───────────────────── */
@@ -58,6 +59,7 @@ body {
   gap: 14px;
   padding: 0 10px 26px;
   box-sizing: border-box;
+  overflow: visible !important;
 }
 #messages::-webkit-scrollbar {
   width: 6px;
@@ -152,6 +154,8 @@ body {
   width: 300px;
   max-width: 250px; /* Adjust the max-width as needed */
   word-wrap: break-word; /* Ensure long words break to prevent overflow */
+  z-index: 10000 !important;
+  overflow: visible;
 }
   background-color: rgba(0, 0, 0, 0.85);
   color: #fff;
