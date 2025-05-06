@@ -30,13 +30,6 @@ body {
   color: #0d0d0d;
 }
 
-#mentor-wrap {
-  height: 100%;
-  padding: 0 10px;
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
 /* ───────── CHAT FRAME ───────────────────────── */
 #chat {
   position: relative;
