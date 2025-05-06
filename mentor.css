@@ -1,690 +1,660 @@
 
 /* ───────── ROOT SYSTEM ─────────────────────── */
 :root {
-  --radius-pill: 9999px;
-  --radius-lg: 28px;
-  --glass: rgba(255, 255, 255, 0.66);
-  --glass-dark: rgba(28, 28, 30, 0.64);
-  --border: rgba(255, 255, 255, 0.34);
-  --border-dark: rgba(255, 255, 255, 0.08);
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  --radius-pill: 9999px;
+  --radius-lg: 28px;
+  --glass: rgba(255, 255, 255, 0.66);
+  --glass-dark: rgba(28, 28, 30, 0.64);
+  --border: rgba(255, 255, 255, 0.34);
+  --border-dark: rgba(255, 255, 255, 0.08);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
 
-  /* brand accent (deep indigo) */
-  --accent: #FF0000;
-  --accent-hover: #4d4fab;
+  /* brand accent (deep indigo) */
+  --accent: #008000;
+  --accent-hover: #4d4fab;
 
-  --pink: #FF2D55;
-  --purple: #BF5AF2;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont,
-    'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --pink: #FF2D55;
+  --purple: #BF5AF2;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont,
+    'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* ───────── PAGE & WRAPPER ───────────────────── */
 html,
 body {
-  height: 100%;
-  margin: 0;
-  font: 16px/1.5 var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  background: linear-gradient(135deg, #fafafa 0%, #eceff5 100%);
-  color: #0d0d0d;
+  height: 100%;
+  margin: 0;
+  font: 16px/1.5 var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  background: linear-gradient(135deg, #fafafa 0%, #eceff5 100%);
+  color: #0d0d0d;
+}
+
+#mentor-wrap {
+  height: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 /* ───────── CHAT FRAME ───────────────────────── */
 #chat {
-  position: relative;
-  height: 100%;
-  max-width: 100%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  padding: 10px 0 0;
-  gap: 20px;
+  position: relative;
+  height: 100%;
+  max-width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0 0;
+  gap: 20px;
 }
 
 /* ───────── MESSAGE STREAM ───────────────────── */
 #messages {
-  flex: 1 1 auto;
-  overflow-y: auto;
-  overflow-x: visible; /* Changed from hidden to visible */
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 0 10px 26px;
-  box-sizing: border-box;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0 10px 26px;
+  box-sizing: border-box;
 }
 #messages::-webkit-scrollbar {
-  width: 6px;
+  width: 6px;
 }
 #messages::-webkit-scrollbar-thumb {
-  background: rgba(60, 60, 67, 0.18);
-  border-radius: 3px;
+  background: rgba(60, 60, 67, 0.18);
+  border-radius: 3px;
 }
 
 /* Chat bubbles */
 @keyframes floatIn {
-  from {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 .message {
-  width: fit-content;
-  max-width: 90%;
-  padding: 16px 24px;
-  border-radius: var(--radius-lg);
-  background: var(--glass);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(22px);
-  box-shadow: var(--shadow);
-  animation: floatIn 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-  opacity: 0;
-  word-wrap: break-word;
-  overflow-wrap: anywhere;
+  width: fit-content;
+  max-width: 90%;
+  padding: 16px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--glass);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(22px);
+  box-shadow: var(--shadow);
+  animation: floatIn 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+  opacity: 0;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 .user-message {
-  align-self: flex-end;
-  background: #27b2cd;
-  color: #fff;
-  border-bottom-right-radius: 8px;
-  font-size: 14px;
-  border: 1px solid #27b2cd;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  align-self: flex-end;
+  background: #27b2cd;
+  color: #fff;
+  border-bottom-right-radius: 8px;
+  font-size: 14px;
+  border: 1px solid #27b2cd;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .bot-message {
-  align-self: flex-start;
-  color: #201e57; /* AI text colour */
-  border-bottom-left-radius: 8px;
-  font-size: 14px;
+  align-self: flex-start;
+  color: #201e57; /* AI text colour */
+  border-bottom-left-radius: 8px;
+  font-size: 14px;
 }
 
 /* AI formatting helpers */
 .ai-heading {
-  font-weight: 700;
-  margin: 0.6em 0 0.25em;
+  font-weight: 700;
+  margin: 0.6em 0 0.25em;
 }
 .ai-body {
-  margin-bottom: 0.55em;
+  margin-bottom: 0.55em;
 }
 .ai-bullet {
-  margin: 0 0 0.4em 1.2em;
-  list-style: disc;
+  margin: 0 0 0.4em 1.2em;
+  list-style: disc;
 }
 
 /* Bookmark pill inside a bubble */
 .bookmark-link {
-  display: inline-block;
-  padding: 4px 14px;
-  font-size: 12px;
-  font-weight: 600;
-  border-radius: var(--radius-pill);
-  background: none;
-  border: 1px solid #d057a0;
-  color: #d057a0;
-  cursor: pointer;
-  transition: all 0.25s;
-  position: relative; /* For tooltip positioning */
-  z-index: 1; /* Ensure it's below the tooltip */
+  display: inline-block;
+  padding: 4px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  background: none;
+  border: 1px solid #d057a0;
+  color: #d057a0;
+  cursor: pointer;
+  transition: all 0.25s;
+  position: relative; /* For tooltip positioning */
 }
 .bookmark-link:hover {
-  background: #d057a0;
-  color: #fff;
+  background: #d057a0;
+  color: #fff;
 }
 
 /* Tooltip Styles */
 .tooltip-container {
-  position: relative;
-  display: inline-block;
-  /* Ensure overflow is visible to allow tooltip to overflow */
-  overflow: visible;
+  position: relative;
+  display: inline-block;
 }
 
 .tooltip-text {
-  visibility: hidden;
-  width: 250px; /* Reduced width to prevent overflow */
-  max-width: 80vw; /* Ensure tooltip doesn't exceed viewport width */
-  background-color: rgba(0, 0, 0, 0.85);
-  color: #fff;
-  text-align: left;
-  border-radius: 6px;
-  padding: 10px;
-  position: absolute;
-  z-index: 100000; /* Increased z-index to appear above all elements */
-  bottom: 125%; /* Position above the element */
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.3s;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-
-  /* Prevent tooltip from being clipped by adjusting position */
-  white-space: pre-wrap;
+  visibility: hidden;
+  width: 250px; /* Reduced width to prevent overflow */
+  max-width: 80vw; /* Ensure tooltip doesn't exceed viewport width */
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 10000; /* Increased z-index to appear above all elements */
+  bottom: 125%; /* Position above the element */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
-
 .tooltip-container:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1;
+  visibility: visible;
+  opacity: 1;
 }
 
-/* Adjust tooltip arrow */
 .tooltip-text::after {
-  content: "";
-  position: absolute;
-  top: 100%; /* At the bottom of the tooltip */
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
-}
-
-/* Adjust tooltip positioning for left-edge elements */
-.tooltip-container.left .tooltip-text {
-  left: auto;
-  right: 50%;
-  transform: translateX(50%);
-}
-
-.tooltip-container.left .tooltip-text::after {
-  left: auto;
-  right: 50%;
-  margin-left: 0;
-  margin-right: -5px;
-  border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
+  content: "";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
 }
 
 /* make bookmark grid bubble transparent & border-less */
 .bookmark-bubble {
-  align-self: center;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  backdrop-filter: none;
-  padding: 0;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  align-self: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  padding: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 /* Loader dots */
 .loader {
-  display: flex;
-  align-items: center;
+  display: flex;
+  align-items: center;
 }
 .dot {
-  width: 8px;
-  height: 8px;
-  margin-right: 4px;
-  border-radius: 50%;
-  background: var(--accent);
-  opacity: 0.9;
-  animation: bounce 1.2s infinite;
+  width: 8px;
+  height: 8px;
+  margin-right: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.9;
+  animation: bounce 1.2s infinite;
 }
 @keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-14px);
-  }
-  60% {
-    transform: translateY(-7px);
-  }
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-14px);
+  }
+  60% {
+    transform: translateY(-7px);
+  }
 }
 .dot:nth-child(2) {
-  animation-delay: 0.1s;
+  animation-delay: 0.1s;
 }
 .dot:nth-child(3) {
-  animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
 
 /* ───────── BOOKMARK CIRCLE GRID ─────────────── */
 .bookmark-circle {
-  position: relative;
-  width: 140px;
-  height: 140px;
-  margin: 0.5em;
-  border-radius: 50%;
-  padding: 1.1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  color: #fff;
-  text-align: center;
-  cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
-  transition: transform 0.25s, box-shadow 0.25s;
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0.5em;
+  border-radius: 50%;
+  padding: 1.1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+  transition: transform 0.25s, box-shadow 0.25s;
 }
 .bookmark-circle:hover {
-  transform: scale(1.07);
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
+  transform: scale(1.07);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
 }
 .bookmark-circle:nth-child(3n + 1) {
-  background: linear-gradient(
-    135deg,
-    rgb(176, 48, 133) 0%,
-    rgb(226, 109, 176) 50%,
-    rgb(245, 152, 203) 100%
-  );
+  background: linear-gradient(
+    135deg,
+    rgb(176, 48, 133) 0%,
+    rgb(226, 109, 176) 50%,
+    rgb(245, 152, 203) 100%
+  );
 }
 .bookmark-circle:nth-child(3n + 2) {
-  background: linear-gradient(
-    135deg,
-    rgb(232, 110, 78) 0%,
-    rgb(254, 160, 127) 50%,
-    rgb(254, 184, 152) 100%
-  );
+  background: linear-gradient(
+    135deg,
+    rgb(232, 110, 78) 0%,
+    rgb(254, 160, 127) 50%,
+    rgb(254, 184, 152) 100%
+  );
 }
 .bookmark-circle:nth-child(3n) {
-  background: linear-gradient(
-    135deg,
-    rgb(30, 152, 176) 0%,
-    rgb(61, 192, 216) 50%,
-    rgb(46, 209, 240) 100%
-  );
+  background: linear-gradient(
+    135deg,
+    rgb(30, 152, 176) 0%,
+    rgb(61, 192, 216) 50%,
+    rgb(46, 209, 240) 100%
+  );
 }
 .bookmark-number {
-  font-size: 1.5em;
-  font-weight: 700;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 .bookmark-title {
-  font-size: 0.85em;
-  line-height: 1.25em;
-  word-wrap: break-word;
+  font-size: 0.85em;
+  line-height: 1.25em;
+  word-wrap: break-word;
 }
 .close-icon {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  font-weight: 700;
-  line-height: 20px;
-  text-align: center;
-  color: #201e57;
-  cursor: pointer;
-  transition: background 0.2s;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  color: #201e57;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 .close-icon:hover {
-  background: rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.12);
 }
 
 /* ───────── INPUT AREA ───────────────────────── */
 #chatBox {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 .input-container {
-  position: relative;
-  width: 100%;
+  position: relative;
+  width: 100%;
 }
 #userInput {
-  width: 100%;
-  min-height: 46px;
-  max-height: 140px;
-  padding: 16px 96px 16px 22px;
-  font: 500 15px/1.4 var(--font-sans);
-  color: #0d0d0d;
-  background: var(--glass);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-pill);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(12px);
-  resize: none;
-  overflow-y: auto;
-  outline: none;
-  transition: box-shadow 0.25s, background 0.25s;
+  width: 100%;
+  min-height: 46px;
+  max-height: 140px;
+  padding: 16px 96px 16px 22px;
+  font: 500 15px/1.4 var(--font-sans);
+  color: #0d0d0d;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  resize: none;
+  overflow-y: auto;
+  outline: none;
+  transition: box-shadow 0.25s, background 0.25s;
 }
 #userInput:focus {
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 #sendButton {
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 40px;
-  padding: 0 26px;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  border: none;
-  border-radius: var(--radius-pill);
-  background: #201e57;
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.25s, transform 0.15s;
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 40px;
+  padding: 0 26px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: #201e57;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.15s;
 }
 #sendButton:hover {
-  background: var(--accent-hover);
+  background: var(--accent-hover);
 }
 #sendButton:active {
-  transform: translateY(-50%) scale(0.96);
+  transform: translateY(-50%) scale(0.96);
 }
 
 /* ───────── BOOKMARK FILTERS ───────────────────── */
 .bookmark-filters {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .bookmark-filters span {
-  font-size: 14px;
-  font-weight: 600;
-  color: #201e57;
+  font-size: 14px;
+  font-weight: 600;
+  color: #201e57;
 }
 .filter-btn {
-  padding: 6px 12px;
-  font-size: 12px;
-  font-weight: 600;
-  border: none;
-  border-radius: var(--radius-pill);
-  background: #e0e0e0;
-  color: #201e57;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: #e0e0e0;
+  color: #201e57;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
 }
 .filter-btn:hover {
-  background: var(--accent-hover);
-  color: #fff;
+  background: var(--accent-hover);
+  color: #fff;
 }
 .filter-btn.active {
-  background: var(--accent);
-  color: #fff;
+  background: var(--accent);
+  color: #fff;
 }
 
 /* ───────── SAVED! TOAST ─────────────────────── */
 @keyframes toastFade {
-  0% {
-    transform: translateX(-50%) translateY(20px);
-    opacity: 0;
-  }
-  10% {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-  }
-  80% {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-50%) translateY(-10px);
-    opacity: 0;
-  }
+  0% {
+    transform: translateX(-50%) translateY(20px);
+    opacity: 0;
+  }
+  10% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10px);
+    opacity: 0;
+  }
 }
 .toast {
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--accent);
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: var(--radius-pill);
-  font-size: 14px;
-  font-weight: 600;
-  pointer-events: none;
-  animation: toastFade 2.5s ease forwards;
-  z-index: 99999; /* Increased z-index to ensure it's above tooltips */
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 600;
+  pointer-events: none;
+  animation: toastFade 2.5s ease forwards;
+  z-index: 9999;
 }
 
 /* ───────── DARK MODE ───────────────────────── */
 @media (prefers-color-scheme: dark) {
-  body {
-    background: #000;
-    color: #f2f2f7;
-  }
-  #userInput,
-  .message {
-    background: var(--glass-dark);
-    border: 1px solid var(--border-dark);
-  }
-  .bot-message {
-    color: var(--accent);
-  }
-  #userInput {
-    color: #f2f2f7;
-  }
-  #sendButton {
-    background: #fff;
-    color: #000;
-  }
-  #sendButton:hover {
-    background: #e5e5e5;
-  }
-  .bookmark-filters span {
-    color: #fff;
-  }
-  #showBookmarksButton {
-    color: #fff;
-    opacity: 0.75;
-  }
-  .close-icon {
-    color: var(--accent);
-  }
-  .toast {
-    background: #fff;
-    color: #000;
-  }
+  body {
+    background: #000;
+    color: #f2f2f7;
+  }
+  #userInput,
+  .message {
+    background: var(--glass-dark);
+    border: 1px solid var(--border-dark);
+  }
+  .bot-message {
+    color: var(--accent);
+  }
+  #userInput {
+    color: #f2f2f7;
+  }
+  #sendButton {
+    background: #fff;
+    color: #000;
+  }
+  #sendButton:hover {
+    background: #e5e5e5;
+  }
+  .bookmark-filters span {
+    color: #fff;
+  }
+  #showBookmarksButton {
+    color: #fff;
+    opacity: 0.75;
+  }
+  .close-icon {
+    color: var(--accent);
+  }
+  .toast {
+    background: #fff;
+    color: #000;
+  }
 
-  /* Ensure tooltips also adapt to dark mode */
-  .tooltip-text {
-    background-color: rgba(255, 255, 255, 0.85);
-    color: #000;
-  }
-  .tooltip-text::after {
-    border-color: rgba(255, 255, 255, 0.85) transparent transparent transparent;
-  }
+  /* Ensure tooltips also adapt to dark mode */
+  .tooltip-text {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #000;
+  }
+  .tooltip-text::after {
+    border-color: rgba(255, 255, 255, 0.85) transparent transparent transparent;
+  }
 }
 
 /* ───────── RESPONSIVE TWEAKS ───────────────── */
 @media (max-width: 480px) {
-  #chat {
-    padding: 0px;
-  }
-  /* — Chat bubbles fill the width instead of shrinking */
-  .message {
-    width: 100%;
-    max-width: 100%;
-  }
-  .user-message,
-  .bot-message {
-    align-self: stretch;
-  }
-  #userInput {
-    font-size: 16px;
-  }
-  .bookmark-filters > * {
-    font-size: 12px;
-  }
-  .bookmark-bubble > div {
-    justify-content: center;
-  }
-  .bookmark-circle {
-    flex: 0 0 130px;
-    width: 130px;
-    height: 130px;
-    margin: 6px;
-  }
-  .bookmark-number {
-    margin-bottom: 5px;
-  }
+  #chat {
+    padding: 0px;
+  }
+  /* — Chat bubbles fill the width instead of shrinking */
+  .message {
+    width: 100%;
+    max-width: 100%;
+  }
+  .user-message,
+  .bot-message {
+    align-self: stretch;
+  }
+  #userInput {
+    font-size: 16px;
+  }
+  .bookmark-filters > * {
+    font-size: 12px;
+  }
+  .bookmark-bubble > div {
+    justify-content: center;
+  }
+  .bookmark-circle {
+    flex: 0 0 130px;
+    width: 130px;
+    height: 130px;
+    margin: 6px;
+  }
+  .bookmark-number {
+    margin-bottom: 5px;
+  }
 
-  /* Adjust tooltip width for smaller screens */
-  .tooltip-text {
-    width: 90vw;
-    max-width: none;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  /* Ensure tooltips don't get cut off on small screens */
-  .tooltip-container.left .tooltip-text {
-    left: auto;
-    right: 50%;
-    transform: translateX(50%);
-  }
-  .tooltip-container.left .tooltip-text::after {
-    left: auto;
-    right: 50%;
-    margin-left: 0;
-    margin-right: -5px;
-    border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
-  }
+  /* Adjust tooltip width for smaller screens */
+  .tooltip-text {
+    width: 90vw;
+    max-width: none;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 /* ───────── TAGS FOR BOOKMARKS ───────────────── */
 .bookmark-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 8px;
-  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+  justify-content: center;
 }
 .bookmark-tag-pill {
-  display: inline-block;
-  padding: 4px 10px;
-  font-size: 12px;
-  font-weight: 600;
-  border-radius: var(--radius-pill);
-  background: none;
-  border: 1px solid #d057a0;
-  color: #d057a0;
-  cursor: default;
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  background: none;
+  border: 1px solid #d057a0;
+  color: #d057a0;
+  cursor: default;
 }
 
 /* ───────── POPUP STYLING: PREMIUM, FLUID, FUN ───────── */
 @keyframes popupFadeIn {
-  0% {
-    transform: translateY(20px) scale(0.9);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
+  0% {
+    transform: translateY(20px) scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
 }
 
 .popupOverlay {
-  position: fixed;
-  z-index: 99998;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  animation: popupFadeIn 0.3s ease forwards;
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  animation: popupFadeIn 0.3s ease forwards;
 }
 
 .popupWindow {
-  background: linear-gradient(135deg, #fff 0%, #f9f9ff 100%);
-  border: 0;
-  border-radius: 16px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(12px);
-  padding: 26px 24px 20px;
-  min-width: 320px;
-  max-width: 90%;
-  color: #0d0d0d;
-  position: relative;
-  animation: popupFadeIn 0.35s ease-out forwards;
-  transform: translateY(20px);
-  opacity: 0;
+  background: linear-gradient(135deg, #fff 0%, #f9f9ff 100%);
+  border: 0;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  padding: 26px 24px 20px;
+  min-width: 320px;
+  max-width: 90%;
+  color: #0d0d0d;
+  position: relative;
+  animation: popupFadeIn 0.35s ease-out forwards;
+  transform: translateY(20px);
+  opacity: 0;
 }
 .popupTitle {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: #201e57;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #201e57;
 }
 .popupSubtitle {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 16px;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 16px;
 }
 .popupLabel {
-  font-size: 14px;
-  margin: 10px 0 6px;
-  color: #201e57;
-  font-weight: 600;
+  font-size: 14px;
+  margin: 10px 0 6px;
+  color: #201e57;
+  font-weight: 600;
 }
 .popupSelect,
 .popupInput {
-  width: 100%;
-  padding: 10px;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.85);
-  font-family: var(--font-sans);
-  font-size: 14px;
-  outline: none;
-  transition: box-shadow 0.25s, background 0.25s;
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  outline: none;
+  transition: box-shadow 0.25s, background 0.25s;
 }
 .popupSelect:focus,
 .popupInput:focus {
-  background: #fff;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 .popupButtons {
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
 }
 .popupButton {
-  padding: 10px 16px;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: var(--radius-pill);
-  border: none;
-  cursor: pointer;
-  background: #201e57;
-  color: #fff;
-  transition: background 0.2s, transform 0.2s;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  background: #201e57;
+  color: #fff;
+  transition: background 0.2s, transform 0.2s;
 }
 .popupButton:hover {
-  background: var(--accent-hover);
+  background: var(--accent-hover);
 }
 .popupButton:active {
-  transform: scale(0.96);
+  transform: scale(0.96);
 }
 .popupClose {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  font-weight: 700;
-  color: #fff;
-  cursor: pointer;
-  background: #201e57;
-  border: none;
-  font-size: 18px;
-  line-height: 18px;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  transition: background 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  background: #201e57;
+  border: none;
+  font-size: 18px;
+  line-height: 18px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .popupClose:hover {
-  background: var(--accent-hover);
+  background: var(--accent-hover);
 }
